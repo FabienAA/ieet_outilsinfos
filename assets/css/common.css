@@ -35,6 +35,10 @@ h2 {
   margin: 20px 0 20px 0;
   padding: 0;
 }
+h3 {
+  font-weight: normal;
+}
+.noanim { transition:none !important; }
 
 /* page/site title */
 h1 { color: #7289DA; line-height: 50px; }
@@ -52,15 +56,25 @@ h3 > a {
 h3 > a:hover {
   color: #7289DA;
 }
-
-h3 { font-weight: normal; }
 h3 > a:before {
   content: "\21E8";
   padding-right: 5px;
 } 
-#besoins > div { display:none; margin:0 0 50px 20px; padding: 0 0 0 10px; border-left:3px double #CCCCCC;}
+#besoins > div {
+  box-sizing: border-box;
+  margin:0 0 0 20px; padding: 0 0 0 10px; border-left:3px double #CCCCCC;
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 1s;
+}
 .precision { font-size: 80%; line-height: 1.2; color:#666666; }
 .precision p { margin:0; padding:0 0 7px 0; }
+#besoins > div.hidden { box-sizing: border-box; max-height: 0px; }
+div + h3 { margin-top:0; }
+#besoins p:first-child { margin-top:5px; }
+#besoins > div:not(.hidden) + h3 {
+  margin-top:50px;
+}
 
 /** alternatives */
 h2#autresalternative { margin-bottom: 10px; }

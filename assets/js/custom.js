@@ -1,58 +1,55 @@
 function ieetshow(lnk) {
-  var div=$(lnk).closest('h3').next();
-  if(div.is(':hidden')) {
-    $('div#besoins > div').hide(400);
-    div.show(400);
+  var div=lnk.parentNode.nextElementSibling;
+  if(div.className!=null && div.className.indexOf('hidden')>=0) {
+    var section=document.getElementById('besoins').childNodes;
+    var nb=section.length;
+    for(var i=0;i<nb;i++) {
+      if(section[i].nodeType!=1 || section[i].tagName.toUpperCase()!='DIV') continue;
+      
+      section[i].className='hidden';
+    }
+    div.className='';
+    addHashToUrl(lnk.parentNode.id);
   } else {
-    div.hide(400);
+    div.className='hidden';
   }
-  addHashToUrl($(lnk).attr('href'));
   return false;
 } 
 
-function addHashToUrl($url)
-{
-  if ('' == $url || undefined == $url) {
-    $url = '_'; // it is empty hash because if put empty string here then browser will scroll to top of page
-  }
-  $hash = $url.replace(/^.*#/, '');
-  var $fx, $node = jQuery('#' + $hash);
-  if ($node.length) {
-    $fx = jQuery('<div></div>')
-            .css({
-                position:'absolute',
-                visibility:'hidden',
-                top: jQuery(window).scrollTop() + 'px'
-            })
-            .attr('id', $hash)
-            .appendTo(document.body);
-    $node.attr('id', '');
-  }
-  document.location.hash = $hash;
-  if ($node.length) {
-    $fx.remove();
-    $node.attr('id', $hash);
-  }
+function addHashToUrl(targetid) {
+  var elt=document.getElementById(targetid);
+  var y=window.pageYOffset;
+  if(typeof y == 'undefined') y = (r.scrollTop || b.scrollTop || 0);
+  var dispinit=elt.style.display;
+  elt.style.display='hidden';
+  elt.style.position='absolute';
+  elt.style.top=(y-18)+'px';
+  document.location.hash = targetid;
+  elt.style.position='relative';
+  elt.style.top=0;  
+  elt.style.display=dispinit;
 }
 
-
-$(document).ready(function(){
-  // ajouter les actions sur les questions
-  var questions=$('#besoins > h3');
-  var nb=(questions==null?0:questions.length);
-  for(var i=0;i<nb;i++) {
-    $(questions[i]).html(
-      '<a href="#'+questions[i].id+'" onclick="return ieetshow(this);">' + $(questions[i]).html() + '</a>'  
-    )                                                                                      
-  }
-  
+function readydoc() {
   // ajouter la target blank sur les liens vers l'exterieur (les ouvrir dans un nouvel onglet)
-  $('#besoins > div a').attr('target','_blank');
-  $('#alternativelist a').attr('target','_blank');
-  
-  // ouvrir la reponse correspondant à l'ancre demandée en url
+  var links=document.getElementById('besoins').getElementsByTagName('A');
+  for(var i=0;i<links.length;i++) links[i].setAttribute('target','_blank');
+  links=document.getElementById('alternativelist').getElementsByTagName('A');
+  for(var i=0;i<links.length;i++) links[i].setAttribute('target','_blank');
+
+  // ajouter les actions sur les questions + masque les réponses
   var anchor=document.location.hash;
-  if(anchor!=null && anchor.match(/^#/)) {
-    $(anchor).next().show();
+  var section=document.getElementById('besoins').childNodes;
+  var nb=section.length;
+  for(var i=0;i<nb;i++) {
+    if(section[i].nodeType!=1) continue;
+    if(section[i].tagName.toUpperCase()=='H3') {
+      section[i].innerHTML='<a href="#'+section[i].id+'" onclick="return ieetshow(this);">'+section[i].innerHTML+'</a>';
+    }
+    if(section[i].tagName.toUpperCase()=='DIV') {
+      var id='#'+section[i].previousElementSibling.id;
+      if(anchor==null || anchor!=id) section[i].className='hidden noanim';
+    }
   }
-});
+  
+}
