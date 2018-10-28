@@ -3,41 +3,113 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="assets/css/common.min.css" type="text/css" rel="stylesheet" id="comcss"/>
+  <link href="assets/css/common.css" type="text/css" rel="stylesheet" id="comcss"/>
   <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js" id="jqueryjslib"></script>
-  <script type="text/javascript">
-    function ieetshow(lnk) {
-      var id=$(lnk).closest('h3')[0].id;
-      console.debug(id);
-      $('.reponse:not(#'+id+'_rep').hide(400);
-      $('#'+id+'_rep').show(400);
-    } 
-  </script>
+  <script type="text/javascript" src="assets/js/custom.js" id="jqueryjslib"></script>
   <title>Carte des outils informatiques | IEET</title>
 </head>
 	<body id="homepage"><div id="mainbody">
     <h1><a href="./"><img src="assets/img/logo_ieet.png" width="50" height="50" alt="IEET" />Outils informatiques - Collectif citoyen IEET</a></h1>
     
-    <h2>Quels sont tes besoins ?</h2>
-    <h3 id="tableur"><a href="#tableur" onclick="ieetshow(this);return false;">Tableur</a></h3>
-    <div id="tableur_rep" class="reponse">
-      <p>Par défaut, tu peux utiliser : <a href="https://accueil.framacalc.org/fr/" target="_blank">https://framacalc.org/</a></p>
-      <p>Si tu as des besoins avancés*, tu peux utiliser : <a href="https://docs.google.com/spreadsheets" target="_blank">https://docs.google.com/spreadsheets</a></p>
-      <div class="precision">
-        <p>* besoins avancés : d'utiliser des formules avancées, d'une mise en page avancée ou de gérer finement les droits</p>
+    <div id="besoins">
+      <h2>Quels sont tes besoins ?</h2>
+      
+      <h3 id="tableur">Tableur</h3>
+      <div>
+        <p>Par défaut, tu peux utiliser : <a href="https://accueil.framacalc.org/fr/">framacalc.org</a></p>
+        <p>Si tu as des besoins avancés*, tu peux utiliser : <a href="https://docs.google.com/spreadsheets">docs.google.com/spreadsheets</a></p>
+        <div class="precision">
+          <p>* besoins avancés : d'utiliser des formules avancées, d'une mise en page avancée ou de gérer finement les droits</p>
+        </div>
       </div>
-    </div>
-    <h3 id="traitementtexte"><a href="#traitementtexte" onclick="ieetshow(this);return false;">Traitement de texte</a></h3>
-    <div id="traitementtexte_rep" class="reponse">
-      <p>Par défaut : <a href="https://framapad.org/" target="_blank">https://framapad.org/</a></p>
-      <p>Si besoin moyen*, tu peux utiliser : <a href="https://stackedit.io/" target="_blank">https://stackedit.io/</a></p>
-      <p>Si besoin avancé**, tu peux utiliser : <a href="https://docs.google.com/document" target="_blank">https://docs.google.com/document</a></p>
-      <div class="precision">
-        <p>* besoin moyen : d'une mise en page moyenne, de garder le fichier sans condition d'accès (nécessité de connecter un compte google, github, dropbox, gitlab, etc...)</p>
-        <p>** besoins avancés : d'un éditeur de texte avancé, d'une mise en page avancée ou de gérer finement les droits</p>
+      
+      <h3 id="traitementtexte">Traitement de texte</h3>
+      <div>
+        <p>Par défaut : <a href="https://framapad.org/">framapad.org</a></p>
+        <p>Si besoin moyen*, tu peux utiliser : <a href="https://stackedit.io/">stackedit.io</a></p>
+        <p>Si besoin avancé**, tu peux utiliser : <a href="https://docs.google.com/document">docs.google.com/document</a></p>
+        <div class="precision">
+          <p>* besoin moyen : d'une mise en page moyenne, de garder le fichier sans condition d'accès (nécessité de connecter un compte google, github, dropbox, gitlab, etc...)</p>
+          <p>** besoins avancés : d'un éditeur de texte avancé, d'une mise en page avancée ou de gérer finement les droits</p>
+        </div>
+      </div>
+      
+      <h3 id="chat">Chat / Discussion</h3>
+      <div>
+        <p><a href="https://discord.gg/44RPdNs">discord.gg/44RPdNs</a></p>
+      </div>
+
+      <h3 id="conversation">Conversation audio / vidéo</h3>
+      <div>
+        <p><a href="https://discord.gg/44RPdNs">discord.gg/44RPdNs</a></p>
+        <p>si discord bug : <a href="https://framatalk.org/accueil/fr/">framatalk.org</a></p>
+      </div>
+      
+      <h3 id="partageecran">Partage d'écran</h3>
+      <div>
+        <p><a href="https://discord.gg/44RPdNs">discord.gg/44RPdNs</a></p>
+        <p>si discord bug : <a href="https://framatalk.org/accueil/fr/">framatalk.org</a></p>
+      </div>
+
+      <h3 id="formulaire">Formulaire</h3>
+      <div>
+        <p><a href="https://framaforms.org/">framaforms.org</a></p>
+      </div>
+
+      <h3 id="agenda">Agenda</h3>
+      <div>
+        <p><a href="https://framagenda.org/">framagenda.org</a></p>
+      </div>
+
+      <h3 id="partagefichier">Partage de fichier</h3>
+      <div>
+        <p><a href="https://framadrop.org/">framadrop.org</a></p>
+      </div>
+
+      <h3 id="partageimage">Partage d'image</h3>
+      <div>
+        <p><a href="https://framapic.org/">framapic.org</a></p>
+      </div>
+
+      <h3 id="mailinglist">Mailing list (diffusion)</h3>
+      <div>
+        <p><a href="https://framalistes.org/">framalistes.org</a></p>
+      </div>
+
+      <h3 id="mindmap">MindMap</h3>
+      <div>
+        <p><a href="https://www.mindmup.com/">www.mindmup.com</a></p>
+      </div>
+
+      <h3 id="stokagefichiers">Stockage de fichiers</h3>
+      <div>
+        <p><a href="https://cozy.io/fr/">cozy.io</a></p>
+      </div>
+
+      <h3 id="uploadvideo">Upload de vidéos</h3>
+      <div>
+        <p><a href="https://joinpeertube.org/fr/">joinpeertube.org</a></p>
+      </div>
+
+      <h3 id="vote">Vote</h3>
+      <div>
+        <p><a href="https://framadate.org/">framadate.org</a></p>
+        <p>Prochainement : remplacé par Loomio</p>
+      </div>
+
+      <h3 id="debat">Débat</h3>
+      <div>
+        <p>Prochainement : Loomio</p>
       </div>
     </div>
     
-      
+    <h2 id="autresalternative" style="margin-top:80px">D'autres alternatives ?</h2>
+    <ul id="alternativelist">
+      <li><a href="https://framalibre.org/">framalibre.org</a></li>
+      <li><a href="https://prism-break.org/fr/">prism-break.org</a></li>
+      <li><a href="https://degooglisons-internet.org/fr/list/">degooglisons-internet.org/fr/list/</a></li>
+      <li><a href="https://degooglisons-internet.org/fr/alternatives/">degooglisons-internet.org/fr/alternatives/</a></li>
+      <li><a href="https://nomoregoogle.com/">nomoregoogle.com</a></li>
+    </ul>
   </div></body>
 </html>  
