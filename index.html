@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr" xmlns:og="http://ogp.me/ns#">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/css/common.min.css" type="text/css" rel="stylesheet" id="comcss"/>
+  <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js" id="jqueryjslib"></script>
+  <script type="text/javascript">
+    function ieetshow(lnk) {
+      var id=$(lnk).closest('h3')[0].id;
+      console.debug(id);
+      $('.reponse:not(#'+id+'_rep').hide(400);
+      $('#'+id+'_rep').show(400);
+    } 
+  </script>
+  <title>Carte des outils informatiques | IEET</title>
+</head>
+	<body id="homepage"><div id="mainbody">
+    <h1><a href="./"><img src="assets/img/logo_ieet.png" width="50" height="50" alt="IEET" />Outils informatiques - Collectif citoyen IEET</a></h1>
+    
+    <h2>Quels sont tes besoins ?</h2>
+    <h3 id="tableur"><a href="#tableur" onclick="ieetshow(this);return false;">Tableur</a></h3>
+    <div id="tableur_rep" class="reponse">
+      <p>Par défaut, tu peux utiliser : <a href="https://accueil.framacalc.org/fr/" target="_blank">https://framacalc.org/</a></p>
+      <p>Si tu as des besoins avancés*, tu peux utiliser : <a href="https://docs.google.com/spreadsheets" target="_blank">https://docs.google.com/spreadsheets</a></p>
+      <div class="precision">
+        <p>* besoins avancés : d'utiliser des formules avancées, d'une mise en page avancée ou de gérer finement les droits</p>
+      </div>
+    </div>
+    <h3 id="traitementtexte"><a href="#traitementtexte" onclick="ieetshow(this);return false;">Traitement de texte</a></h3>
+    <div id="traitementtexte_rep" class="reponse">
+      <p>Par défaut : <a href="https://framapad.org/" target="_blank">https://framapad.org/</a></p>
+      <p>Si besoin moyen*, tu peux utiliser : <a href="https://stackedit.io/" target="_blank">https://stackedit.io/</a></p>
+      <p>Si besoin avancé**, tu peux utiliser : <a href="https://docs.google.com/document" target="_blank">https://docs.google.com/document</a></p>
+      <div class="precision">
+        <p>* besoin moyen : Si besoin : d'une mise en page moyenne, de garder le fichier sans condition d'accès (nécessité de connecter un compte google, github, dropbox, gitlab, ect...)</p>
+        <p>** besoins avancés : d'un éditeur de texte avancé, d'une mise en page avancée ou de gérer finement les droits</p>
+      </div>
+    </div>
+    
+      
+  </div></body>
+</html>  
