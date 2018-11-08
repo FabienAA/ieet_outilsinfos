@@ -41,8 +41,22 @@ h3 {
 .noanim { transition:none !important; }
 
 /* page/site title */
-h1 { color: #7289DA; line-height: 50px; }
-h1 img { vertical-align: middle; margin-right: 15px; }
+h1 {
+  background: url(../img/logo_cplc.png) no-repeat left top;
+  background-size: 60px 60px;
+  min-height: 60px;
+  padding: 0 0 0 70px;
+  margin: 20px 0 50px 0;
+  line-height:1;
+}
+/* h1 strong {color: #FBBE49;} */
+h1 span.subtitle {
+  display: block;
+  font-size:70%;
+  line-height:1;
+  margin:5px 0 0 0;
+  padding:0;
+}
 h1 > a {
   text-decoration: none;
   color: inherit;
